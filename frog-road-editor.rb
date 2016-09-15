@@ -25,6 +25,8 @@ end
 end
 
 $debug = false
-$window = GameWindow.new
-GameState.switch(MenuState.instance)
-$window.show
+
+# Create a new State for level edition and an editor menu state
+# $window = GameWindow.new
+# GameState.switch(MenuState.instance)
+# $window.show
