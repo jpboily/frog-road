@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby
 
 require 'gosu'
+require 'gosu_tiled'
 require 'gosu_texture_packer'
 require 'perlin_noise'
 

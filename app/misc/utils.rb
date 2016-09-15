@@ -23,6 +23,10 @@ module Utils
       __FILE__))), 'media', file)
   end
 
+  def self.level_path(file)
+    File.join(media_path('levels/'),file)
+  end
+
   def self.sound_path(file)
     File.join(media_path('sounds/'),file)
   end

@@ -3,9 +3,9 @@
 # Source: https://github.com/spajus/ruby-gamedev-book-examples
 #
 class Map
-  MAP_WIDTH = 6
-  MAP_HEIGHT = 4
-  TILE_SIZE = 128
+  MAP_WIDTH = 7
+  MAP_HEIGHT = 7
+  TILE_SIZE = 64
 
   def self.bounding_box
     center = [MAP_WIDTH * TILE_SIZE / 2,
@@ -25,20 +25,17 @@ class Map
     # TODO - Find spawn point from level info. For now, start at the bottom
     # of the map in the middle of the screen.
     x = MAP_WIDTH * TILE_SIZE / 2
-    y = MAP_HEIGHT * TILE_SIZE
+    y = MAP_HEIGHT * TILE_SIZE - (TILE_SIZE / 2)
     return [x, y]
   end
 
   def draw(viewport)
-    viewport = viewport.map { |p| p / TILE_SIZE }
-    x0, x1, y0, y1 = viewport.map(&:to_i)
-    (x0-1..x1).each do |x|
-      (y0-1..y1).each do |y|
-        Gosu::Image.from_text(
-                  $window, "#{x}:#{y}",
-                  Utils.main_font, 15).draw(x, y, 0)
-      end
-    end
+    return unless @map
+    @map.draw(0,0)
+  end
+
+  def load_level(level_name)
+    @map = Gosu::Tiled.load_json($window, Utils.level_path(level_name))
   end
 
   private
@@ -48,12 +45,6 @@ class Map
     t_y = ((y / TILE_SIZE) % TILE_SIZE).floor
     row = @map[t_x]
     row ? row[t_y] : @water
-  end
-
-  def load_tiles
-    # tiles = Gosu::Image.load_tiles(
-    #   $window, Utils.texture_path('ground.png'),
-    #   128, 128, true)
   end
 
   # def generate_map

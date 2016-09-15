@@ -8,7 +8,7 @@ class Camera
 
   def target=(target)
     @target = target
-    @x, @y = target.x, target.y
+    @x, @y = $window.width / 2, $window.height / 2
     @zoom = 1
   end
 

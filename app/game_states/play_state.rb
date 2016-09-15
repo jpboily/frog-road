@@ -8,6 +8,7 @@ class PlayState < GameState
   def initialize
     @object_pool = ObjectPool.new(Map.bounding_box)
     @map = Map.new(@object_pool)
+    @map.load_level('level-1.json')
     @camera = Camera.new
     @object_pool.camera = @camera
     create_player

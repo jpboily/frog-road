@@ -1,0 +1,35 @@
+{ "height":7,
+ "layers":[
+        {
+         "data":[1, 5, 1, 5, 1, 5, 1, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 1, 1, 1, 1, 1, 1, 1, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 1, 1, 1, 1, 1, 1, 1],
+         "height":7,
+         "name":"Level",
+         "opacity":1,
+         "type":"tilelayer",
+         "visible":true,
+         "width":7,
+         "x":0,
+         "y":0
+        }],
+ "nextobjectid":1,
+ "orientation":"orthogonal",
+ "renderorder":"right-down",
+ "tileheight":64,
+ "tilesets":[
+        {
+         "columns":4,
+         "firstgid":1,
+         "image":"..\/textures\/frog-road-textures.png",
+         "imageheight":512,
+         "imagewidth":512,
+         "margin":0,
+         "name":"frog-road-textures",
+         "spacing":0,
+         "tilecount":16,
+         "tileheight":128,
+         "tilewidth":128
+        }],
+ "tilewidth":64,
+ "version":1,
+ "width":7
+}
