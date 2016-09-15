@@ -1,13 +1,13 @@
 { "height":7,
  "layers":[
         {
-         "data":[1, 5, 1, 5, 1, 5, 1, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 1, 1, 1, 1, 1, 1, 1, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 1, 1, 1, 1, 1, 1, 1],
+         "data":[1, 17, 1, 17, 1, 17, 1, 17, 1, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 1, 1, 1, 1, 1, 1, 1, 1, 1, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 1, 1, 1, 1, 1, 1, 1, 1, 1],
          "height":7,
-         "name":"Level",
+         "name":"Calque de Tile 1",
          "opacity":1,
          "type":"tilelayer",
          "visible":true,
-         "width":7,
+         "width":9,
          "x":0,
          "y":0
         }],
@@ -17,7 +17,7 @@
  "tileheight":64,
  "tilesets":[
         {
-         "columns":4,
+         "columns":8,
          "firstgid":1,
          "image":"..\/textures\/frog-road-textures.png",
          "imageheight":512,
@@ -25,11 +25,11 @@
          "margin":0,
          "name":"frog-road-textures",
          "spacing":0,
-         "tilecount":16,
-         "tileheight":128,
-         "tilewidth":128
+         "tilecount":64,
+         "tileheight":64,
+         "tilewidth":64
         }],
  "tilewidth":64,
  "version":1,
- "width":7
+ "width":9
 }
