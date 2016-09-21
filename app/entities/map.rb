@@ -34,8 +34,8 @@ class Map
     @map.draw(0,0)
   end
 
-  def load_level(level_name)
-    @map = Gosu::Tiled.load_json($window, Utils.level_path(level_name))
+  def load_map_from_json(map_file)
+    @map = Gosu::Tiled.load_json($window, Utils.level_path(map_file))
   end
 
   private

@@ -8,7 +8,7 @@ class PlayState < GameState
   def initialize
     @object_pool = ObjectPool.new(Map.bounding_box)
     @map = Map.new(@object_pool)
-    @map.load_level('level-1.json')
+    @map.load_map_from_json('level-map.json')
     @camera = Camera.new
     @object_pool.camera = @camera
     create_player
@@ -23,6 +23,7 @@ class PlayState < GameState
   end
 
   def draw
+    # TODO - Create offset to center level in window
     cam_x = @camera.x
     cam_y = @camera.y
     off_x =  $window.width / 2 - cam_x
