@@ -3,7 +3,7 @@
 # Source: https://github.com/spajus/ruby-gamedev-book-examples
 #
 class PlayState < GameState
-  attr_accessor :update_interval, :object_pool, :frog
+  attr_accessor :update_interval, :object_pool, :player
 
   def initialize
     @object_pool = ObjectPool.new(Map.bounding_box)
@@ -11,19 +11,18 @@ class PlayState < GameState
     @map.load_map_from_json('level-map.json')
     @camera = Camera.new
     @object_pool.camera = @camera
-    create_player
+    @player = Player.new('Player', @camera, @object_pool)
   end
 
   def update
     StereoSample.cleanup
     @object_pool.update_all
     @camera.update
-    @hud.update
+    # @hud.update
     update_caption
   end
 
   def draw
-    # TODO - Create offset to center level in window
     cam_x = @camera.x
     cam_y = @camera.y
     off_x =  $window.width / 2 - cam_x
@@ -34,12 +33,15 @@ class PlayState < GameState
           [x1 + (x2 - x1) / 2, y1 + (y2 - y1) / 2],
           [x1 - Map::TILE_SIZE, y1 - Map::TILE_SIZE])
     $window.translate(off_x, off_y) do
-      @map.draw(viewport)
-      @object_pool.query_range(box).map do |o|
-        o.draw(viewport)
+      zoom = @camera.zoom
+      $window.scale(zoom, zoom, cam_x, cam_y) do
+        @map.draw(viewport)
+        @object_pool.objects.each do |o|
+          o.draw(viewport)
+        end
       end
     end
-    @hud.draw
+    # @hud.draw
   end
 
   def button_down(id)
@@ -61,22 +63,20 @@ class PlayState < GameState
     if @profiling_now
       toggle_profiling
     end
-    puts "Pool: #{@object_pool.size}"
-    @hud.active = false
+    # @hud.active = false
   end
 
   def enter
-    @hud.active = true
+    # @hud.active = true
   end
 
   private
 
   def create_player()
-    @frog = Frog.new(@object_pool,
-      PlayerInput.new('Player', @camera, @object_pool))
-
-    @camera.target = @frog
-    @hud = HUD.new(@frog)
+    # @frog = Frog.new(@object_pool,
+    #   PlayerInput.new('Player', @camera, @object_pool))
+    #
+    # @hud = HUD.new(@frog)
   end
 
   def toggle_profiling

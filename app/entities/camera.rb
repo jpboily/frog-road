@@ -4,21 +4,14 @@
 #
 class Camera
   attr_accessor :x, :y, :zoom
-  attr_reader :target
+
+  def initialize
+    @x, @y = $window.width / 2, $window.height / 2
+    @zoom = 1.5
+  end
 
   def target=(target)
     @target = target
-    @x, @y = $window.width / 2, $window.height / 2
-    @zoom = 1
-  end
-
-  def mouse_coords
-    x, y = target_delta_on_screen
-    mouse_x_on_map = @target.x +
-      (x + $window.mouse_x - ($window.width / 2)) / @zoom
-    mouse_y_on_map = @target.y +
-      (y + $window.mouse_y - ($window.height / 2)) / @zoom
-    [mouse_x_on_map, mouse_y_on_map].map(&:round)
   end
 
   def update
