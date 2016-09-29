@@ -16,7 +16,7 @@ class MenuState < GameState
 
   def enter
     music.play(true)
-    music.volume = 1
+    music.volume = 0
   end
 
   def leave

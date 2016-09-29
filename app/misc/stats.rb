@@ -4,18 +4,22 @@
 #
 class Stats
   # TODO - Add stats for completed levels
-  attr_reader :score, :changed_at
-  def initialize()
+  attr_reader :name, :score, :changed_at, :high_score
+  def initialize(name)
     @score = 0
+    @high_score = 0
+    @name = name # Might be useful to keep high score leaderboard
     changed
   end
 
   def inscrease_score(points)
     @score += points
+    @high_score = @score if @score > @high_score
   end
 
   def to_s
-    "Score: #{@score}"
+    "Score: " \
+    "#{@name}: #{@score}"
     # "[kills: #{@kills}, " \
     #   "deaths: #{@deaths}, " \
     #   "shots: #{@shots}, " \

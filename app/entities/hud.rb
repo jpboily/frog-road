@@ -17,10 +17,10 @@ class HUD
   end
 
   def health_image
-    if @health.nil? || @frog.health.health != @health
-      @health = @frog.health.health
+    if @lives.nil? || @frog.lives.lives != @lives
+      @lives = @frog.lives.lives
       @health_image = Gosu::Image.from_text(
-        $window, "Health: #{@health} lives", Utils.main_font, 20) # TODO use hearth image for lives
+          $window, "Health: #{@lives} lives", Utils.main_font, 20) # TODO use hearth image for lives
     end
     @health_image
   end

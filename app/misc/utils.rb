@@ -154,27 +154,12 @@ module Utils
   end
 
 
-  # TODO - Validate usefullness
   def self.volume(object, camera)
-    return 1 if object == camera.target
-    distance = Utils.distance_between(
-      camera.target.x, camera.target.y,
-      object.x, object.y)
-    distance = [(HEARING_DISTANCE - distance), 0].max
-    distance / HEARING_DISTANCE
+    return 1
   end
 
-  # TODO - Validate usefullness
   def self.pan(object, camera)
-    return 0 if object == camera.target
-    pan = object.x - camera.target.x
-    sig = pan > 0 ? 1 : -1
-    pan = (pan % HEARING_DISTANCE) / HEARING_DISTANCE
-    if sig > 0
-      pan
-    else
-      -1 + pan
-    end
+    return 0
   end
 
   # TODO - Validate usefullness

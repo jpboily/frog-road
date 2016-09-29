@@ -7,8 +7,8 @@ class GameWindow < Gosu::Window
 
   def initialize
     # TODO - Set from configuration
-    super((ENV['w'] || 800).to_i,
-          (ENV['h'] || 600).to_i,
+    super((ENV['w'] || 1024).to_i,
+          (ENV['h'] || 768).to_i,
           (ENV['fs'] ? true : false))
   end
 

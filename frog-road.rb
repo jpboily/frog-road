@@ -3,7 +3,6 @@
 require 'gosu'
 require 'gosu_tiled'
 require 'gosu_texture_packer'
-require 'perlin_noise'
 
 root_dir = File.join(File.dirname(__FILE__), 'app/')
 require_pattern = File.join(root_dir, '**/*.rb')

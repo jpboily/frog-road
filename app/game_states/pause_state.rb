@@ -17,7 +17,7 @@ class PauseState < GameState
   def enter
     music.play(true)
     music.volume = 1
-    @score_display = ScoreDisplay.new(@play_state.frog)
+    @score_display = ScoreDisplay.new(@play_state.player)
     @mouse_coords = [$window.mouse_x, $window.mouse_y]
   end
 
