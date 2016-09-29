@@ -29,6 +29,8 @@ class FrogPhysics < Component
         @collides_with = nil
       end
     end
+
+    # Keep trace of last move to simulate tile by tile movement in the map
     @moved_at = Gosu::milliseconds
     true
   ensure
@@ -96,7 +98,7 @@ class FrogPhysics < Component
     end
     if @speed > 0
       new_x, new_y = x, y
-      shift = 32
+      shift = @map.tile_size / 2
       case @object.direction.to_i
       when 0
         new_y -= shift

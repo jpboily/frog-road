@@ -67,6 +67,10 @@ class Map
     MAP_HEIGHT * TILE_SIZE
   end
 
+  def tile_size()
+    TILE_SIZE
+  end
+
   private
 
   def tile_at?(x, y)
